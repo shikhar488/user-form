@@ -14,6 +14,7 @@ function UserInput(){
     }
 
     return(
+        <>
         <form onSubmit={handleOnSubmit}>
             <input type="text"
             placeholder="enter ur name" 
@@ -69,6 +70,10 @@ function UserInput(){
 
             <button type="submit">Submit the data</button>
         </form>
+
+
+        
+        </>
     )
 }
 
