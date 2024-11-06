@@ -1,12 +1,12 @@
 import{ useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAlbumsLoading, fetchAlbumsSuccess, fetchAlbumsFailed } from './redux/albumsSlice';
+import { fetchAlbumsLoading, fetchAlbumsSuccess, fetchAlbumsFailed} from "../redux/albumSlice";
 
 const AlbumsList = () => {
   const dispatch = useDispatch();
-  const albums = useSelector((state) => state.albums.items);
-  const status = useSelector((state) => state.albums.status);
-  const error = useSelector((state) => state.albums.error);
+  const albums = useSelector((state) => state.album?.items);
+  const status = useSelector((state) => state.album?.status);
+  const error = useSelector((state) => state.album?.error);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,12 +28,14 @@ const AlbumsList = () => {
   if (status === 'loading') return <p>Loading...</p>;
   if (status === 'failed') return <p>Error: {error}</p>;
 
+  if (!albums) {
+    return <p>No albums found.</p>; 
+  }
+
   return (
     <ul>
-      {albums.slice(0, 10).map((album) => (
-        <li key={album.id}>
-          <h3>{album.title}</h3>
-        </li>
+      {albums.map((album) => (
+        <li key={album.id}>{album.title}</li>
       ))}
     </ul>
   );

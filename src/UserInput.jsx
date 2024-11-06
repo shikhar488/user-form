@@ -71,7 +71,7 @@ function UserInput() {
                 <DatePicker selected={date} onChange={(date) => setDate(date)} />
                 <br />
 
-                <input type="file" required />
+                <input type="file" />
                 <br />
 
                 <fieldset>

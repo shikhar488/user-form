@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const albumsSlice = createSlice({
-    name:'albums',
+const albumSlice = createSlice({
+    name:'album',
     initialState:{
         items:[],
         state:'idle',
@@ -23,5 +23,5 @@ const albumsSlice = createSlice({
       },
 });
 
-export const {fetchAlbumsFailed,fetchAlbumsLoading,fetchAlbumsSuccess} = albumsSlice.actions;
-export default albumsSlice.reducer;
+export const {fetchAlbumsFailed,fetchAlbumsLoading,fetchAlbumsSuccess} = albumSlice.actions;
+export default albumSlice.reducer;

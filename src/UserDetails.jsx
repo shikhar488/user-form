@@ -16,10 +16,10 @@ function UserDetails(){
             {isValid ? <p>Email: {email}</p> : <p>Invalid Email</p>}
             {date && <p>Selected Date: {date.toDateString()}</p>}
             <ul>
-                {selectedOptions.map(([option, isSelected]) => (
-                    isSelected && <li key={option}>{option}</li>
-                ))}
-            </ul>
+        {selectedOptions && Array.isArray(selectedOptions) && selectedOptions.map((option, index) => (
+          <li key={index}>{option.value}</li>
+        ))}
+      </ul>
         </div>
     );
     
